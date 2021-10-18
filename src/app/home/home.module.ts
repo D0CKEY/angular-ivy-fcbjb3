@@ -3,7 +3,7 @@ import {RouterModule} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TranslateModule} from '@ngx-translate/core';
-import {HttpModule} from '@angular/http';
+//import {HttpModule} from '@angular/http';
 import {SharedModule} from '../shared';
 import {SuiCheckboxModule, SuiSelectModule} from 'ng2-semantic-ui';
 import {MatExpansionModule} from '@angular/material/expansion';
