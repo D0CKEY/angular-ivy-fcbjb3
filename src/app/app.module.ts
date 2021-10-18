@@ -13,7 +13,7 @@ import {SharedModule} from './shared';
 window["$"] = $;
 window["jQuery"] = $;
 
-const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {useHash: true});
+const rootRouting: ModuleWithProviders<unknown> = RouterModule.forRoot([], {useHash: true});
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
