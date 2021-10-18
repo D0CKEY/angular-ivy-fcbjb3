@@ -4,7 +4,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TranslateModule} from '@ngx-translate/core';
 import {SharedModule} from '../shared';
-import {SuiCheckboxModule, SuiSelectModule} from 'ng2-semantic-ui';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskEditorComponent } from './task-editor/task-editor.component';
@@ -32,8 +31,6 @@ const homeRouting: ModuleWithProviders<unknown> = RouterModule.forChild([
     ReactiveFormsModule,
     TranslateModule,
     SharedModule,              // ha ide új module bekerül, újra 'ng serve' kell!!!
-    SuiCheckboxModule,
-    SuiSelectModule,
     MatExpansionModule
   ],
   declarations: [
