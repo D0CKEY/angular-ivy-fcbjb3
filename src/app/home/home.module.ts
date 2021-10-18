@@ -9,7 +9,7 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { TaskEditorComponent } from './task-editor/task-editor.component';
 import { TodoPageComponent } from './todo-page/todo-page.component';
 import { HelpComponent } from './help/help.component';
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'
 
 const homeRouting: ModuleWithProviders<unknown> = RouterModule.forChild([
   {
@@ -25,6 +25,7 @@ const homeRouting: ModuleWithProviders<unknown> = RouterModule.forChild([
 
 @NgModule({
   imports: [
+    MatSlideToggleModule,
     homeRouting,
     BrowserModule,
     FormsModule,
