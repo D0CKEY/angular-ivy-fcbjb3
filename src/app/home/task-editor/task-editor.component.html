@@ -1,84 +1,36 @@
-import { Component, OnInit } from '@angular/core';
-import {Task} from '../models/task';
-import {TaskService} from '../../shared/service/task.service';
-import {MatDialog} from '@angular/material/dialog';
-import {ConfirmModalComponent} from '../../shared/confirm-modal/confirm-modal.component';
+<section class="ui task-editor-form-controller">
 
-@Component({
-  selector: 'app-task-list',
-  templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.scss']
-})
-export class TaskListComponent implements OnInit {
+<form class="ui form" [formGroup]="taskForm">
+  <div class="field">
+    <div class="ui action input">
+      <input formControlName="name" type="text" placeholder="{{ 'TASK.NAME' | translate }}">
+    </div>
+  </div>
 
-  greetings: string = 'Check out my tasks!';
-  showGreetings: boolean = true;
+  <div class="ui buttons">
+    <div class="ui button yellow" (click)="onChangePriority(0)" [ngClass]="{
+      'active': editedTask?.priority == 0,
+      'basic': editedTask?.priority != 0
+    }">
+      {{ 'TASK.PRIORITIES.0' | translate }}
+    </div>
 
-  tasks: Task[] = [];
+    <div class="ui button orange" (click)="onChangePriority(1)" [ngClass]="{
+      'active': editedTask?.priority == 1,
+      'basic': editedTask?.priority != 1
+    }">
+      {{ 'TASK.PRIORITIES.1' | translate }}
+    </div>
 
-  selectedTask: Task = null;
-  showCompletedTasks: boolean = true;
+    <div class="ui button red" (click)="onChangePriority(2)" [ngClass]="{
+      'active': editedTask?.priority == 2,
+      'basic': editedTask?.priority != 2
+    }">
+      {{ 'TASK.PRIORITIES.2' | translate }}
+    </div>
+  </div>
 
-  constructor(private taskService: TaskService, private dialog: MatDialog) {
+  <button class="float-right" mat-raised-button color="primary" (click)="onSaveTask()">{{ 'TASK.SAVE' | translate }}</button>
+</form>
 
-    this.taskService.tasksSubject.subscribe((data: Task[])=> {
-      this.tasks = data;
-    });
-
-    this.taskService.selectedTaskSubject.subscribe((t: Task)=> {
-      this.selectedTask = t;
-    });
-  }
-
-  ngOnInit() {
-  }
-
-  onSelectTask(task: Task) {
-    if (this.selectedTask != null && this.selectedTask.id == task.id) {
-      task = null;
-    }
-
-    this.taskService.selectedTaskSubject.next(task);
-  }
-
-  onDelete(task: Task) {
-    const dialogConfig = {
-      hasBackdrop: true,
-      width: '60vh',
-      data: {
-        title: 'Confirmation required',
-        question: 'Are you sure you want to delete: ' + task.name
-      }
-    }
-
-    const dialogRef = this.dialog.open(ConfirmModalComponent, dialogConfig);
-
-    dialogRef.afterClosed().subscribe((confirm: boolean) => {
-      if (confirm) {
-        this.taskService.deleteTask(task);
-      }
-    });
-  }
-
-  onCheck(task: Task) {
-    task.completed = !task.completed;
-  }
-
-  displayTask(task: Task): boolean {
-    if (this.showCompletedTasks) {
-      return true;
-    }
-
-    return !task.completed;
-  }
-
-  getTaskDate(task: Task) {
-    return new Date(task.creationDate);
-  }
-}
-
-/*
-  onChangeVisibility() {
-    this.showGreetings = !this.showGreetings;
-  }
-*/
+</section>
