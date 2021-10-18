@@ -5,9 +5,9 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {AppComponent} from './app.component';
 import * as $ from 'jquery';
-import {HomeModule} from "./home/home.module";
+import {AppComponent} from './app.component';
+import {HomeModule} from './home/home.module';
 import {SharedModule} from './shared';
 
 window["$"] = $;
