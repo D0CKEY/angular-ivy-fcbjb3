@@ -1,0 +1,22 @@
+{
+  "MAIN": {
+    "APP_NAME": "Feladatkezelő"
+  },
+
+  "OPERATION": {
+    "INCREASE": "Növel"
+  },
+
+  "TASK": {
+    "NAME": "Név",
+    "PRIORITY": "Prioritás",
+    "SAVE": "Feladat mentése",
+    "PRIORITIES":  {
+      "0": "Alacsony",
+      "1": "Közepes",
+      "2": "Magas"
+    },
+
+    "SHOW_COMPLETED_TASKS": "Befejezettek mutatása"
+  }
+}

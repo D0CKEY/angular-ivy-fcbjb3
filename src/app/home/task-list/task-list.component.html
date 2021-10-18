@@ -1,0 +1,43 @@
+<header class="task-list-header">
+<div class="checkboxes">
+  <sui-checkbox class="toggle" [(ngModel)]="showCompletedTasks">{{'TASK.SHOW_COMPLETED_TASKS' | translate}}</sui-checkbox>
+</div>
+</header>
+
+<div class="task-list-container">
+<div *ngFor="let task of tasks" (click)="onSelectTask(task)">
+  <div class="task-row ui segment raised" *ngIf="displayTask(task)" [ngClass]="{
+          'completed': task.completed,
+    'selected': task.id == selectedTask?.id
+  }">
+
+    <label class="ui horizontal label" [ngClass]="{
+      'yellow': task.priority == 0,
+      'orange': task.priority == 1,
+      'red': task.priority == 2
+    }">
+      {{ 'TASK.PRIORITIES.' + task.priority | translate }}
+    </label>
+
+    <h5 class="task-name overflow-ellipsis">{{ task.name }}</h5>
+
+    <div class="list-item-right-side">
+      <p class="date">{{getTaskDate(task) | date: 'mediumTime'}}</p>
+      <i class="ui icon check" (click)="onCheck(task)"></i>
+      <i class="ui icon trash" (click)="onDelete(task)"></i>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!--<div *ngIf="showGreetings">-->
+<!--  {{ greetings }}-->
+<!--</div>-->
+
+<!--<button mat-raised-button color="primary" (click)="onChangeVisibility()">-->
+<!--  <span *ngIf="showGreetings">Hide Title</span>-->
+<!--  <span *ngIf="!showGreetings">Show Title</span>-->
+<!--</button>-->
+
+<!--<hr>-->

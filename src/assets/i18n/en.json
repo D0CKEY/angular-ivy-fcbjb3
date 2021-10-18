@@ -1,0 +1,22 @@
+{
+  "MAIN": {
+    "APP_NAME": "Task Manager"
+  },
+
+  "OPERATION": {
+    "INCREASE": "Increase"
+  },
+
+  "TASK": {
+    "NAME": "Name",
+    "PRIORITY": "Priority",
+    "SAVE": "Save task",
+    "PRIORITIES":  {
+      "0": "Low",
+      "1": "Mid",
+      "2": "High"
+    },
+
+    "SHOW_COMPLETED_TASKS": "Show completed"
+  }
+}

@@ -1,0 +1,18 @@
+<p>
+Help
+</p>
+
+<div>
+<ul>
+  <li *ngFor="let creator of creators"
+      [class.online-highlight]="!creator.online" [ngClass]="creator.age > 35 ? 'senior' : 'junior'"
+  >{{creator.fullName}} ({{creator.age}})
+  </li>
+</ul>
+</div>
+
+<button mat-raised-button color="primary" (click)="toggleOnline()">Everyone On/Off</button>
+
+<p>
+Last Update: {{lastUpdate}}
+</p>
