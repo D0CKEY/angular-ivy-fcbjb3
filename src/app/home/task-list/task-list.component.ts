@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Task} from '../models/task';
 import {TaskService} from '../../shared/service/task.service';
 import {MatDialog} from '@angular/material/dialog';
@@ -18,7 +18,7 @@ export class TaskListComponent implements OnInit {
 
   selectedTask: Task = null;
   showCompletedTasks: boolean = true;
-
+ 
   constructor(private taskService: TaskService, private dialog: MatDialog) {
 
     this.taskService.tasksSubject.subscribe((data: Task[])=> {
